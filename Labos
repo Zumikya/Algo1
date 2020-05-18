@@ -1,0 +1,1196 @@
+/*LABO 1*/
+/* Ejercicio 2 */
+#include <iostream>
+
+int f(int x, int y){
+        return x + y;
+}
+
+int main(){
+    int x = 0;
+    int y = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> x;
+    std::cout << "Ingrese otro numero" << std::endl;
+    std::cin >> y;
+    int resultado = f(x, y);
+    std::cout << "La suma es: " << resultado << std::endl;
+    return 0;
+}
+
+/* Ejercicio 3 */
+#include <iostream>
+
+int f(int x, int y){
+    if(x > y){
+        return x + y;
+    } else {
+        return x * y;
+    }
+}
+
+int main(){
+    int x = 0;
+    int y = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> x;
+    std::cout << "Ingrese otro numero" << std::endl;
+    std::cin >> y;
+    int resultado = f(x, y);
+    std::cout << "El resultado es: " << resultado << std::endl;
+    return 0;
+}
+
+/* Ejercicio 4 */
+
+#include <iostream>
+
+bool esPrimo(int n){
+    int divisores = 0;
+    for(int i=2; i < n; i = i + 1){
+        if(n % i == 0){
+            divisores = divisores + 1;
+        } else {
+
+        }
+    }
+    if (divisores == 0){
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    if(esPrimo(n)){
+        std::cout << "true" << std::endl;
+    } else {
+        std::cout << "false" << std::endl;
+    }
+    return 0;
+}
+
+/*Ejercicio 5 con for*/
+
+#include <iostream>
+
+int fib(int n){
+    int a = 0;
+    int b = 1;
+    int c = 0;
+        if (n < 2){
+            return n;
+        } else {
+            for(int i = 1; i < n; i = i + 1){
+                c = a + b;
+                a = b;
+                b = c;
+            }
+            return c;
+        }
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int termino = fib(n);
+    std::cout << "El " << n << "-esimo termino de Fibonacci es: " << termino << std::endl;
+    return 0;
+}
+
+/*Ejercicio 5 con while*/
+
+#include <iostream>
+
+int fib(int n){
+    int a = 0;
+    int b = 1;
+    int c = 0;
+    int i = 1;
+        if (n < 2){
+            return n;
+        } else {
+            while(i < n){
+                c = a + b;
+                a = b;
+                b = c;
+                i = i + 1;
+            }
+            return c;
+        }
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int termino = fib(n);
+    std::cout << "El " << n << "-esimo termino de Fibonacci es: " << termino << std::endl;
+    return 0;
+}
+
+/*Ejercicio 5 con recursion*/
+
+#include <iostream>
+
+int fib(int n){
+    if(n == 0){
+        return 0;
+    } else {
+        if (n == 1){
+            return 1;
+        } else {
+            return fib(n - 1) + fib (n - 2);
+        }
+    }
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int termino = fib(n);
+    std::cout << "El " << n << "-ésimo número de Fibonacci es: " << termino << std::endl;
+    return 0;
+}
+
+/*Ejercicio 6 con for*/
+
+#include <iostream>
+
+int sumaImpares(int n){
+    int sum = 0;
+    for(int i = 1; i < n; i = i + 1){
+        if (i % 2 == 1){
+            sum = sum + i;
+        } else {
+
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int suma = sumaImpares(n);
+    std::cout << "La suma de los numeros impares menores que " << n << " es: " << suma << std::endl;
+    return 0;
+}
+
+/*Ejercicio 6 con recursion*/
+
+#include <iostream>
+
+int sumaImpares(int n){
+    if (n == 1){
+        return 0;
+    } else {
+        if (n % 2 == 0){
+            return (n - 1) + sumaImpares(n - 1);
+        } else {
+            return (n - 2) + sumaImpares(n - 2);
+        }
+    }
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int suma = sumaImpares(n);
+    std::cout << "La suma de los numeros impares menores que " << n << " es: " << suma << std::endl;
+    return 0;
+}
+
+/*Ejercicio 6 con while*/
+
+#include <iostream>
+
+int sumaImpares(int n){
+    int i = 1;
+    int sum = 0;
+    while(i < n){
+        if (i % 2 == 1){
+            sum = sum + i;
+            i = i + 1;
+        } else {
+            i = i + 1;
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    int suma = sumaImpares(n);
+    std::cout << "La suma de los numeros impares menores que " << n << " es: " << suma << std::endl;
+    return 0;
+}
+
+/*Ejercicio 7 con for*/
+
+#include <iostream>
+
+int sumaDivisores(int n){
+    int sum = 0;
+    for(int i = 1; i <= n; i = i + 1){
+        if (n % i == 0){
+            sum = sum + i;
+        } else {
+
+        }
+    }
+    return sum;
+}
+
+bool esPrimo(int n){
+    if(sumaDivisores(n) == n + 1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    int n = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    if(esPrimo(n)){
+        std::cout << "Es primo" << std::endl;
+    } else {
+        std::cout << "No es primo" << std::endl;
+    }
+    return 0;
+}
+
+/*Ejercicio 7 con recursion*/
+
+#include <iostream>
+int sum = 0;
+int divisoresHasta(int n, int h){
+    if (h == 1){
+        return 1;
+    } else {
+        if (n % h == 0){
+        sum = h + divisoresHasta(n, h - 1);
+        } else {
+        sum = divisoresHasta(n, h - 1);
+        }
+    }
+}
+
+int sumaDivisores(int n){
+    divisoresHasta(n, n);
+}
+
+int main() {
+    int n = 0;
+    int h = 0;
+    std::cout << "Ingresa un numero" << std::endl;
+    std::cin >> n;
+    int suma = sumaDivisores(n);
+    std::cout << "La suma de los divisores de " << n << " es: " << suma << std::endl;
+    return 0;
+}
+
+/*Ejercicio 8 iterativo*/
+
+#include <iostream>
+
+int factorial(int n){
+    int p = 1;
+    int x = n;
+    for(int i = 1; i < n; i = i + 1){
+        p = p * x;
+        x = x - 1;
+    }
+    return p;
+}
+
+int combinatorio(int n, int k){
+    return (factorial (n))/((factorial(k))*(factorial (n - k)));
+}
+
+int main() {
+    int n = 0;
+    int k = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    std::cout << "Ingrese otro numero" << std::endl;
+    std::cin >> k;
+    int resultado = combinatorio(n, k);
+    std::cout << "El combinatorio de (" << n << ", " << k << ") es: " << resultado << std::endl;
+    return 0;
+}
+
+/*Ejercicio 8 recursivo*/
+
+#include <iostream>
+
+int combinatorio(int n, int k){
+    if (k == 0 || n == k) {
+        return 1;
+    } else {
+        return combinatorio(n - 1, k) + combinatorio(n - 1, k - 1);
+    }
+}
+
+int main() {
+    int n = 0;
+    int k = 0;
+    std::cout << "Ingrese un numero" << std::endl;
+    std::cin >> n;
+    std::cout << "Ingrese otro numero" << std::endl;
+    std::cin >> k;
+    int resultado = combinatorio(n, k);
+    std::cout << "El combinatorio de (" << n << ", " << k << ") es: " << resultado << std::endl;
+    return 0;
+}
+
+
+
+
+
+
+
+/*LABO 2*/
+
+/*Ejercicio 1*/
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+float suma = 0;
+float c;
+int i = 1;
+    while (i <= 10){
+        cout << "Ingrese una calificacion del 0 al 10" << endl;
+        cin >> c;
+        if (c >= 0 && c <= 10){
+            suma = suma + c;
+            i = i + 1;
+        } else {
+            cout << "La calificacion ingresada no es valida" << endl;
+        }
+
+    }
+cout << suma << endl;
+float promedio = suma/10;
+cout << promedio << endl;
+}
+
+/*Ejercicio 2*/
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    float suma = 0;
+    float i = 0;
+    float c = 0;
+    cout << "Ingrese una calificacion del 0 al 10 o -1 para finalizar" << endl;
+    cin >> c;
+        while (c != -1){
+            if (c >= 0 && c <= 10){
+                suma = suma + c;
+                i = i + 1;
+                cout << "Ingrese otra calificacion del 0 al 10 o -1 para finalizar" << endl;
+                cin >> c;
+            } else {
+                cout << "Invalido" << endl;
+            }
+        }
+    cout << suma << endl;
+    float promedio = suma/i;
+    cout << promedio << endl;
+}
+
+/*Ejercicio 3*/
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    float aprobados = 0;
+    float desaprobados = 0;
+    float i = 0;
+    float c = 0;
+    cout << "Ingrese una calificacion del 0 al 10 o -1 para finalizar" << endl;
+    cin >> c;
+    while (c != -1){
+        if (c > 6 && c <= 10){
+            aprobados = aprobados + 1;
+            i = i + 1;
+            cout << "Ingrese otra calificacion del 0 al 10 o -1 para finalizar" << endl;
+            cin >> c;
+        } else {
+            if(c >= 0 && c <= 6) {
+                desaprobados = desaprobados + 1;
+                i = i + 1;
+                cout << "Ingrese otra calificacion del 0 al 10 o -1 para finalizar" << endl;
+                cin >> c;
+            } else {
+                cout << "Calificacion invalida" << endl;
+                cout << "Ingrese otra calificacion del 0 al 10 o -1 para finalizar" << endl;
+                cin >> c;
+            }
+        }
+    }
+    if(i < 6) {
+        cout << "Error" << endl;
+    } else {
+        if(aprobados > (2*i)/3){
+            cout << "Se puede incrementar el numero de plazas en el curso" << endl;
+        } else {
+
+        }
+    }
+}
+
+/*Ejercicio 4*/
+
+#include <iostream>
+using namespace std;
+
+int binario(int n){
+    int valor = 1;
+    int suma = 0;
+    int num = n;
+    while(num != 0){
+        if(num % 10 == 1){
+            suma = suma + valor;
+            valor = valor*2;
+            num = num/10;
+        } else {
+            if(num % 10 == 0){
+                valor = valor*2;
+                num = num/10;
+            } else {
+                cout << "El numero ingresado no es binario" << endl;
+            }
+        }
+    }
+    return suma;
+}
+
+int main() {
+    int a = 0;
+    cout << "Ingrese un numero binario" << endl;
+    cin >> a;
+    int resultado = binario(a);
+    cout << resultado << endl;
+    return 0;
+}
+
+/*Ejercicio 5*/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    float r, d, c, a;
+    cout << "Ingrese el radio de un circulo" << endl;
+    cin >> r;
+    d = 2*r;
+    cout << "El diametro es: " << d << endl;
+    a = r*r*3.14159;
+    cout << "El area es: " << a << endl;
+    c = d*3.14159;
+    cout << "La circunferencia es " << c << endl;
+    return 0;
+}
+
+/*Ejercicio 6*/
+
+#include <iostream>
+
+using namespace std;
+
+int triplicarPorValor(int n){
+    n = n*3;
+    return n;
+}
+
+int triplicarPorReferencia(int &n){
+    n = n*3;
+    return n;
+}
+
+int main() {
+    int a = 0;
+    cout << "Ingrese un numero" << endl;
+    cin >> a;
+    int resultado = triplicarPorValor(a);
+    cout << resultado << endl;
+    cout << a << endl; /*Esta linea la agregue porque queria ver que valor tomaba "a" al final*/
+    return 0;
+}
+
+/*Ejercicio 7*/
+
+#include <iostream>
+
+using namespace std;
+
+void swap(int &a, int &b){
+    int c = a;
+    a = b;
+    b = c;
+}
+
+int main() {
+    int x = 4;
+    int y = 7;
+    swap(x, y);
+    cout << x << endl;
+    cout << y << endl;
+    return 0;
+}
+
+/*Ejercicio 8 recursivo*/
+
+#include <iostream>
+
+using namespace std;
+
+void collatz(int n, int& cantPasos){
+    if(n == 1){
+        cout << "1" << endl;
+        cantPasos = cantPasos + 1;
+        cout << "La cantidad de pasos es " << cantPasos << endl;
+    } else {
+        if(n % 2 == 0){
+            cout << n << " ";
+            n = n/2;
+            cantPasos = cantPasos + 1;
+            collatz(n, cantPasos);
+        } else {
+            cout << n << " ";
+            n = 3*n + 1;
+            cantPasos = cantPasos + 1;
+            collatz(n, cantPasos);
+        }
+    }
+}
+
+int main() {
+    cout << "La sucesion es: ";
+    int a = 11;
+    int b = 0;
+    collatz(a, b);
+    return 0;
+}
+
+/*Ejercicio 8 iterativo*/
+
+#include <iostream>
+
+using namespace std;
+
+void collatz(int n, int& cantPasos){
+int termino = n;
+    while(termino != 1){
+        cout << termino << " ";
+        if(termino % 2 == 0){
+            termino = termino/2;
+            cantPasos = cantPasos + 1;
+        } else {
+            termino = 3*termino + 1;
+            cantPasos = cantPasos + 1;
+        }
+    }
+    cantPasos = cantPasos + 1;
+    cout << "1" << endl;
+    cout << "La cantidad de pasos es: " << cantPasos << endl;
+}
+
+int main() {
+    cout << "La sucesion es: ";
+    int a = 11;
+    int b = 0;
+    collatz(a, b);
+    return 0;
+}
+
+/*Ejercicio 9 iterativo*/
+
+#include <iostream>
+using namespace std;
+void division(int p, int q, int &c, int &r){
+    while(p >= q){
+        p = p - q;
+        c = c + 1;
+    }
+    r = p;
+    cout << "El cociente es " << c << " y el resto es " << r << endl;
+}
+
+int main() {
+    int a = 11;
+    int b = 3;
+    int c = 0;
+    int d = 0;
+    division(a,b,c,d);
+    return 0;
+}
+
+/*Ejercicio 9 recursivo*/
+
+#include <iostream>
+using namespace std;
+void division(int p, int q, int &c, int &r){
+    if(p < q){
+        r = p;
+        cout << "El cociente es " << c << " y el resto es " << r << endl;
+    } else {
+        c = c + 1;
+        p = p - q;
+        division(p, q, c, r);
+    }
+}
+
+int main() {
+    int a = 11;
+    int b = 3;
+    int c = 0;
+    int d = 0;
+    division(a,b,c,d);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+/*LABO 3*/
+
+/*Ejercicio 1*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool divide(vector<int> v, int a){
+    int i = 0;
+    while(i < v.size()){
+        if(v[i] % a == 0){
+            i = i + 1;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+        vector<int> cuenta;
+        cuenta.push_back(2);
+        cuenta.push_back(7);
+        cuenta.push_back(10);
+        bool resultado = divide(cuenta, 2);
+        cout << resultado << endl;
+// Dados un vector v y un int a, decide si a divide a todos los numeros de v.
+    return 0;
+}
+
+/*Ejercicio 2*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int mayor(vector<int> v){
+    if(v.size() > 0){
+        int mayor = v[0];
+        for(int i = 1; i < v.size(); i = i + 1){
+            if (mayor < v[i]){
+                mayor = v[i];
+            } else {
+
+            }
+        }
+        return mayor;
+    } else {
+        cout << "No hay elementos" << endl;
+    }
+}
+int main() {
+    vector<int> cuenta;
+    cuenta.push_back(5);
+    cuenta.push_back(7);
+    cuenta.push_back(3);
+    cuenta.push_back(2);
+    cuenta.push_back(1);
+    int resultado = mayor(cuenta);
+    cout << resultado << endl;
+    return 0;
+}
+
+/*Ejercicio 3*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> reverso(vector<int> v){
+    vector<int> original = v;
+    for(int i = 0; i < v.size(); i = i + 1){
+        v[i] = original[v.size() - 1 - i];
+    }
+    return v;
+}
+
+int main() {
+    vector<int> cuenta;
+    cuenta.push_back(1);
+    cuenta.push_back(3);
+    cuenta.push_back(7);
+    cuenta.push_back(2);
+    cuenta.push_back(9);
+    vector<int> resultado = reverso(cuenta);
+    cout << resultado[0] << endl;
+    cout << resultado[1] << endl;
+    cout << resultado[2] << endl;
+    cout << resultado[3] << endl;
+    cout << resultado[4] << endl;
+    return 0;
+}
+
+/*Ejercicio 4*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> tail(vector<int> v){
+    vector<int> resultado;
+        for(int i = 1; i < v.size(); i = i + 1){
+            resultado.push_back(v[i]);
+        }
+        return resultado;
+}
+
+vector<int> rotar(vector<int> v, int k){
+    vector<int> a;
+    while(k != 0){
+        a = v;
+        v = tail(v);
+        v.push_back(a[0]);
+        k = k - 1;
+    }
+    return v;
+}
+
+int main(){
+    vector<int> prueba;
+    for(int i = 1; i <= 6; i = i + 1){
+        prueba.push_back(i);
+    }
+    vector<int> rotarAPrueba = rotar(prueba, 2);
+    for(int i = 0; i < rotarAPrueba.size(); i = i + 1){
+        cout << rotarAPrueba[i] << " ";
+    }
+    return 0;
+}
+
+/*Ejercicio 5*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> tail(vector<int> v){
+    vector<int> resultado;
+        for(int i = 1; i < v.size(); i = i + 1){
+            resultado.push_back(v[i]);
+        }
+        return resultado;
+}
+
+bool estaOrdenado(vector<int> v){
+    int ultimoElemento = v[v.size() - 1];
+    int anteultimoElemento = v[v.size() - 2];
+    int ultimoIndice = v.size() - 1;
+        if(v.size() > 1 && ultimoElemento > anteultimoElemento){
+            for(int i = ultimoIndice; v.size() > 0; i = i - 1){
+                while(v[i] > v[i - 1]){
+                    v.pop_back();
+                }
+                return false;
+            }
+        } else {
+            if(v.size() > 1 && ultimoElemento < anteultimoElemento){
+                for(int i = ultimoIndice; v.size() > 0; i = i - 1){
+                    while(v[i] < v[i - 1]){
+                        v.pop_back();
+                    }
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        }
+}
+
+int main() {
+    vector<int> prueba;
+    prueba.push_back(8);
+    prueba.push_back(7);
+    prueba.push_back(1);
+    prueba.push_back(2);;
+    if(estaOrdenado(prueba)){
+        cout << "Esta ordenado" << endl;
+    } else {
+        cout << "No esta ordenado" << endl;
+    }
+    return 0;
+}
+
+/*Ejercicio 6*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int sumaDivisores(int n){
+    int sum = 0;
+    for(int i = 1; i <= n; i = i + 1){
+        if (n % i == 0){
+            sum = sum + i;
+        } else {
+
+        }
+    }
+    return sum;
+}
+
+bool esPrimo(int n){
+    if(sumaDivisores(n) == n + 1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+vector<int>factoresPrimos(int n){
+    vector<int> v;
+    for(int i = 2; i <= n; i = i + 1){
+        if(n % i == 0 && esPrimo(i)){
+            v.push_back(i);
+        } else {
+
+        }
+    }
+    return v;
+}
+
+int main() {
+    vector<int> prueba = factoresPrimos(12);
+    cout << prueba.size() << endl;
+    cout << prueba[0] << endl;
+    cout << prueba[1] << endl;
+    return 0;
+}
+
+/*Ejercicio 7*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void mostrarVector(vector<int> v){
+    for(int i = 0; i < v.size() - 1; i = i + 1){
+        cout << v[i] << ", ";
+    }
+    cout << v[v.size() - 1] << "]";
+}
+
+int main() {
+    cout << "[";
+    vector<int> a;
+    for(int i = 1; i <= 5; i = i + 1){
+        a.push_back(i);
+    }
+    mostrarVector(a);
+    return 0;
+}
+
+/*Ejercicio 8*/
+
+/*Esto funciona en el compilador online*/
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+vector<int> leerVector(string nombreArchivo){
+
+    vector<int> v;
+
+    ifstream fin;
+    fin.open("mi_archivo.txt");
+
+    while(!fin.eof()){
+        int valor;
+        fin >> valor;
+        v.push_back(valor);
+    }
+    cout << v[0] << endl;
+    cout << v[1] << endl;
+    cout << v[2] << endl;
+    return v;
+}
+
+int main()
+{
+    leerVector("mi_archivo.txt");
+    return 0;
+}
+
+/*Archivo*/
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout;
+    fout.open("archivo.txt");
+    for(int i = 1; i <= 6; i = i + 1){
+        fout << i << " ";
+    }
+    fout.close();
+    return 0;
+}
+
+/*Ejercicio 9*/
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+void guardarVector(vector<int> v, string nombreArchivo){
+    ofstream fout;
+    fout.open("prueba.txt");
+    fout << "[";
+    for(int i = 0; i < v.size() - 1; i = i + 1){
+        fout << v[i] << " ";
+    }
+    fout << v[v.size() - 1] << "]";
+}
+
+int main(){
+    vector<int> v;
+    for(int i = 1; i <= 6; i = i + 1){
+        v.push_back(i);
+    }
+    ofstream fout;
+    fout.open("prueba.txt");
+    guardarVector(v, "prueba.txt");
+}
+
+/*Ejercicio 10*/
+
+/*Esto funciona en el compilador online*/
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+int sumarAIzquierda(vector<int> v, int i){
+    int sum = 0;
+    if(i == 0){
+        return v[0];
+    } else {
+        while(i >= 0){
+            sum = sum + v[i];
+            i = i - 1;
+        }
+        return sum;
+    }
+}
+
+int sumarADerecha(vector<int> v, int i){
+    int sum = 0;
+    for(int i = 0; i < v.size(); i = i + 1){
+        sum = sum + v[i];
+    }
+    sum = sum - sumarAIzquierda(v, i);
+    return sum;
+}
+
+int elementoMedio(vector<int> v){
+    int i = 0;
+    while(sumarAIzquierda(v, i) < sumarADerecha(v, i)){
+        i = i + 1;
+    }
+    cout << v[i];
+    return i;
+}
+
+vector<int> leerVector(string nombreArchivo){
+
+    vector<int> v;
+
+    ifstream fin;
+    fin.open("elementoMedio.txt");
+
+    while(!fin.eof()){
+        int valor;
+        fin >> valor;
+        v.push_back(valor);
+    }
+    return v;
+}
+
+int main()
+{
+    elementoMedio(leerVector("elementoMedio.txt"));
+    return 0;
+}
+
+/*Ejercicio 11*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+/*Anda bien*/
+vector<int> aparicionesPrimero(vector<int> v){
+    vector<int> a;
+    int sum = 1;
+    for(int i = 1; i < v.size(); i = i + 1){
+        if(v[i] == v[0]){
+            sum = sum + 1;
+        } else {
+
+        }
+    }
+    a.push_back(v[0]);
+    a.push_back(sum);
+    return a;
+}
+
+/*Anda bien*/
+vector<int> quitarApariciones(vector<int> v, int n){
+    vector<int> a = v;
+    for(int i = v.size(); i >= 0; i = i - 1){
+        if(v[i] == n){
+            v[i] = a[a.size() - 1];
+            v[v.size() - 1] = a[i];
+            v.pop_back();
+            a = v;
+        } else {
+
+        }
+    }
+    return v;
+}
+
+vector<vector<int>> apariciones(vector<int> v){
+    vector<vector<int>> a;
+    vector<int> b;
+    while(v.size() > 0){
+        b = aparicionesPrimero(v);
+        a.push_back(b);
+        v = quitarApariciones(v, v[0]);
+    }
+    for(int i = 0; i < a.size(); i = i + 1){
+        cout << (a[i])[1] << " ";
+    }
+    return a;
+}
+
+int main() {
+    vector<int> a;;
+    a.push_back(1);
+    a.push_back(3);
+    a.push_back(7);
+    a.push_back(1);
+    apariciones(a);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*LABO 5*/
+
+/*Ejercicio 1*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool tienePico(vector<int> v){
+    int i = 1;
+    bool res = false;
+    while(i < v.size() - 1){
+        res = res || (v[i] > v[i + 1] && v[i] > v[i - 1]);
+        i++;
+    }
+    return res;
+}
+
+int main() {
+    vector<int> v{1,4,3};
+    if(tienePico(v)){
+        cout << "si";
+    } else{
+        cout << "no";
+    }
+    return 0;
+}
+
+/*Ejercicio 3*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int minimoSubSeq(vector<int> v, int l, int r){
+    int min = v[l];
+    int i = l;
+    int indice = l;
+    while(i < r){
+        if(min > v[i + 1]){
+            min = v[i + 1];
+            indice = i + 1;
+        }
+        i++;
+    }
+    return indice;
+}
+
+int main() {
+    vector<int> v{-7,-1,9,5,1};
+    cout << minimoSubSeq(v,1, 3);
+    return 0;
+}
