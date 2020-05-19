@@ -1194,3 +1194,74 @@ int main() {
     cout << minimoSubSeq(v,1, 3);
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*LABO 6*/
+
+/*Ejercicio 1*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> productoVectorial(vector<int> u, vector<int> v){
+    vector<vector<int>> res(u.size(), vector<int>(v.size())); /*Ojo como inicializo la capacidad de res, no es res(num1,num2)*/
+    int i = 0;
+    while(i < u.size()){
+        int j = 0;  /*Importante declarar a j aca, porque si la declaro al mismo tiempo que i, cuando llega a 3 ya no vuelve a pasar*/
+        while(j < v.size()){
+            res[i][j] = u[i]*v[j];
+            cout << res[i][j] << " ";
+            j++;
+        }
+        i++;
+    }
+    return res;
+}
+
+int main() {
+    vector<int> u{3,1,-2};
+    vector<int> v{2,4,5};
+    productoVectorial(u, v);
+    return 0;
+}
+
+/*Ejercicio 2*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> trasponer(vector<vector<int>> &mat){
+    vector<vector<int>> inicial = mat;
+    int i = 0;
+    while(i < mat.size()){
+        int j = 0;  /*Importante declarar a j aca, porque si la declaro al mismo tiempo que i, cuando llega a 3 ya no vuelve a pasar*/
+        while(j < mat.size()){
+            mat[i][j] = inicial[j][i];
+            cout << mat[i][j] << " ";
+            j++;
+        }
+        i++;
+    }
+    return mat;
+}
+
+int main() {
+    vector<vector<int>> m = {
+            {5,2,-1},
+            {6,7,4},
+            {0,3,2}
+    };
+    trasponer(m);
+    return 0;
+}
