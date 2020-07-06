@@ -59,25 +59,25 @@ int minimoCosto(vector<vector<int>> m){
 
 //Pre n>=0
 int raizA(int n){
-	int i=0;
-	while(i*i<n){
-		i++;
+	int i=0; //O(1)
+	while(i*i<n){ //O(sqrt(n))
+		i++; //O(1)
 	}
-	return i-1;
+	return i-1; //O(1)
 }
 
 int raizB(int n){
-	int low=0;
-	int high=n/2;
+	int low=0; //O(1)
+	int high=n; //O(1)
 
-	while(low+1<high && low*low<n){
-		int mid=(low+high)/2;
-		if(mid*mid<n){
-			low=mid;
+	while(low+1<high && low*low<n){ //O(log(n))
+		int mid=(low+high)/2; //O(1)
+		if(mid*mid<=n){ //O(1)
+			low=mid; //O(1)
 		}else{
-			high=mid;
+			high=mid; //O(1)
 		}
 	}
 
-	return low;
+	return low; //O(1)
 }
