@@ -19,7 +19,7 @@ int minimoCosto(vector<vector<int>> m){
         }
     } else {
         if(j < m.size() - 1){
-            j++;
+            j++; //Primero tengo que incrementar j porque si pongo primero sum = sum + m[i][j] me va a volver a sumar el ultimo casillero que ya sume
             while(j < m.size()){
             sum = sum + m[i][j];
             j++;
