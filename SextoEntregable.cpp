@@ -1,3 +1,26 @@
+
+// Ejercicio 6 Practica 6
+void dividirPorPromedio(vector<float> &s){
+	int i=0;
+	vector<float> s0=s;
+	int p=promedio(s0);
+	while( i<s.size()/2){
+		s[i]=s0[i]/p;
+		s[s.size()-i-1]=s0[s0.size()-i-1]/p;
+		i++;
+	}
+	return;
+}
+
+float promedio(vector<float> &s){
+	float res=0;
+	for(int i=0;i<s.size();i++){
+		res+=s[i];	
+	}
+	res/=s.size();
+	return res;
+}
+
 // Ejercicio 13 Practica 8
 int minimoCosto(vector<vector<int>> m){
     int i = 0; //O(1)
@@ -30,3 +53,31 @@ int minimoCosto(vector<vector<int>> m){
 }
 
 //Complejidad: 2*O(n) = O(n)
+
+
+// Ejercicio 3 Practica 9
+
+//Pre n>=0
+int raizA(int n){
+	int i=0;
+	while(i*i<n){
+		i++;
+	}
+	return i-1;
+}
+
+int raizB(int n){
+	int low=0;
+	int high=n/2;
+
+	while(low+1<high && low*low<n){
+		int mid=(low+high)/2;
+		if(mid*mid<n){
+			low=mid;
+		}else{
+			high=mid;
+		}
+	}
+
+	return low;
+}
