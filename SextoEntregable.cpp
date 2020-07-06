@@ -42,7 +42,7 @@ int minimoCosto(vector<vector<int>> m){
         }
     } else {
         if(j < m.size() - 1){ //O(1)
-            j++;  //O(1) (Primero tengo que incrementar j porque si pongo primero sum = sum + m[i][j] me va a volver a sumar el ultimo casillero que ya sume)
+            j++;  //O(1)
             while(j < m.size()){ //O(n)
             sum = sum + m[i][j]; //O(1)
             j++; //O(1)
@@ -52,7 +52,7 @@ int minimoCosto(vector<vector<int>> m){
     return sum; //O(1)
 }
 
-//Complejidad: 2*O(n) = O(n)
+//Complejidad: 2*O(n) => O(n)
 
 
 // Ejercicio 3 Practica 9
@@ -65,6 +65,8 @@ int raizA(int n){
 	}
 	return i-1; //O(1)
 }
+
+//Complejidad: O(sqrt(n))
 
 int raizB(int n){
 	int low=0; //O(1)
@@ -81,3 +83,5 @@ int raizB(int n){
 
 	return low; //O(1)
 }
+
+//Complejidad: O(log(n))
