@@ -1,5 +1,5 @@
 
-// Ejercicio 6 Practica 6
+// Ejercicio 6 Practica 7
 void dividirPorPromedio(vector<float> &s){
 	int i=0;
 	vector<float> s0=s;
