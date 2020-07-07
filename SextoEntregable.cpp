@@ -62,7 +62,7 @@ int raizA(int n){
 	int i=0; //O(1)
 	while(i*i<n){ // O(1) y sqrt(n) iteraciones
 		i++; //O(1)
-	}			// t(n) = 2*O(1)*sqrt(n) => O(sqrt(n))
+	}			// t(n) = O(1) + 2*O(1)*sqrt(n) => O(sqrt(n))
 	return i-1; //O(1)
 }				// t(n) = O(1) + O(sqrt(n)) + O(1)
 
@@ -79,7 +79,7 @@ int raizB(int n){
 		}else{
 			high=mid; //O(1)
 		}
-	}				// t(n) = 4*O(1)*log(n) => O(log(n))
+	}				// t(n) = O(1) + 4*O(1)*log(n) => O(log(n))
 
 	return low; //O(1)
 }					// t(n) = 2*O(1) + O(log(n)) + O(1)
