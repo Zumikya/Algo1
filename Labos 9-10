@@ -16,3 +16,22 @@ int puntoFijo(vector<int> v){
         return d;
     }
 }
+
+int menorMasGrande(vector<int> v, int x){
+    int d = 0;
+    int h = v.size();
+    while(d < h){
+        int medioIndice = (d+h)/2;
+        int medioElem = v[medioIndice];
+        if(medioElem <= x){
+            d = medioIndice + 1;
+        } else {
+            h = medioIndice;
+        }
+    }
+    if(d == v.size()){
+        return -1;
+    } else {
+        return d;
+    }
+}
