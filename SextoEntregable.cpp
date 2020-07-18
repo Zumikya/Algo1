@@ -22,37 +22,38 @@ float promedio(vector<float> &s){
 }
 
 // Ejercicio 13 Practica 8
-int minimoCosto(vector<vector<int>> m){ // |m| = n
-    int i = 0; 							//O(1)
-    int j = 0; 							//O(1)
-    int sum = m[i][j]; 					//O(1)
-    while(i< m.size()-1 &&j< m.size()-1){// O(1) y n iteraciones
-        if(m[i][j+1] <= m[i+1][j]){ 		//O(1)
-            j++; 							//O(1)
-        } else {
-            i++; 							//O(1)
-        }
-        sum = sum + m[i][j]; 				//O(1)
-    }									// t(n) = O(1) + O(1)3n => O(n)
-    if(i < m.size() - 1){ 				//O(1)
-        i++; 							//O(1)
-        while(i < m.size()){ 			 //O(1) y n iteraciones
-            sum = sum + m[i][j]; 			//O(1)
-            i++; 							//O(1)
-        }									// t(n) = O(1) + O(1)3n => O(n)
-    } else {
-        if(j < m.size() - 1){ 			//O(1)
-            j++;  						//O(1)
-            while(j < m.size()){ 		//O(1) y n iteraciones
-            sum = sum + m[i][j]; 			//O(1)
-            j++; 							//O(1)
-            }							// t(n) = O(1) + O(1)3n => O(n)
-        } 
+int minimoCosto(vector<vector<int>> m){
+    vector<vector<int>> copia = m;
+    int f = 0;
+    int c = 0;
+    while(f < m.size() - 1){
+        f++;
+        copia[f][c] = copia[f][c] + copia[f-1][c];
     }
-    return sum; 						//O(1)
-}										//t(n) = 3*O(1) + O(n) + O(n) + O(1)
+    f = 0;
+    while(c < m.size() - 1){
+        c++;
+        copia[f][c] = copia[f][c] + copia[f][c-1];
+    }
+    for(int i = 1; i < m.size(); i++){
+        for(int j = 1; j < m.size(); j++){
+            if(copia[i-1][j] < copia[i][j-1]){
+                copia[i][j] = copia[i][j] + copia[i-1][j];
+            } else {
+                copia[i][j] = copia[i][j] + copia[i][j-1];
+            }
+        }
+    }
+    return copia[m.size() - 1][m.size() - 1];
+}
 
-//Complejidad: 2*O(n) => O(n)
+int main()
+{
+    vector<vector<int>> m = {{1,2,1},{1,10,1},{10,10,1}};
+    cout << minimoCosto(m);
+
+    return 0;
+}
 
 
 // Ejercicio 3 Practica 9
