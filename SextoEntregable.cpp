@@ -23,30 +23,35 @@ float promedio(vector<float> &s){
 
 // Ejercicio 13 Practica 8
 int minimoCosto(vector<vector<int>> m){
-    vector<vector<int>> copia = m;
-    int f = 0;
-    int c = 0;
-    while(f < m.size() - 1){
-        f++;
-        copia[f][c] = copia[f][c] + copia[f-1][c];
+    vector<vector<int>> copia = m; //O(1)
+    int f = 0; //O(1)
+    int c = 0; //O(1)
+    while(f < m.size() - 1){ //O(n) (recorre los elementos de la primera fila)
+        f++; //O(1)
+        copia[f][c] = copia[f][c] + copia[f-1][c]; //O(1)
     }
-    f = 0;
-    while(c < m.size() - 1){
-        c++;
-        copia[f][c] = copia[f][c] + copia[f][c-1];
+    f = 0; //O(1)
+    while(c < m.size() - 1){ //O(n) (recorre los elementos de la primera columna)
+        c++; //O(1)
+        copia[f][c] = copia[f][c] + copia[f][c-1]; //O(1)
     }
+    /*A continuacion vamos a recorrer todos los elementos excepto los de la primera fila y la primera columna.
+    Hay n elementos en la primera fila y n elementos en la primera columna, donde solo hay un elemento que esta tanto en
+    la primera fila como en la segunda columna (m[0][0]). Por lo tanto el total de elementos que no recorreremos es de
+    2*n - 1. Si m tiene n^2 elementos y hay 2*n - 1 que no recorremos, estaremos recorriendo n^2 - (2*n - 1) elementos.
+    Entonces el tiempo de ejecucion de peor caso es O(n^2 - 2*n + 1) y como el termino con el grado mas alto es n^2, es O(n^2)*/	
     for(int i = 1; i < m.size(); i++){
         for(int j = 1; j < m.size(); j++){
-            if(copia[i-1][j] < copia[i][j-1]){
-                copia[i][j] = copia[i][j] + copia[i-1][j];
+            if(copia[i-1][j] < copia[i][j-1]){ //O(1)
+                copia[i][j] = copia[i][j] + copia[i-1][j]; //O(1)
             } else {
-                copia[i][j] = copia[i][j] + copia[i][j-1];
+                copia[i][j] = copia[i][j] + copia[i][j-1]; //O(1)
             }
         }
     }
-    return copia[m.size() - 1][m.size() - 1];
+    return copia[m.size() - 1][m.size() - 1]; //O(1)
 }
-
+//Complejidad: O(n) + O(n) + O(n^2) -> O(n^2)
 
 // Ejercicio 3 Practica 9
 
