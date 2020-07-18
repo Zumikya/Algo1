@@ -22,18 +22,17 @@ float promedio(vector<float> &s){
 }
 
 // Ejercicio 13 Practica 8
-int minimoCosto(vector<vector<int>> m){
-    vector<vector<int>> copia = m; //O(1)
+int minimoCosto(vector<vector<int>> &m){
     int f = 0; //O(1)
     int c = 0; //O(1)
     while(f < m.size() - 1){ //O(n) (recorre los elementos de la primera fila)
         f++; //O(1)
-        copia[f][c] = copia[f][c] + copia[f-1][c]; //O(1)
+        m[f][c] = m[f][c] + m[f-1][c]; //O(1)
     }
     f = 0; //O(1)
     while(c < m.size() - 1){ //O(n) (recorre los elementos de la primera columna)
         c++; //O(1)
-        copia[f][c] = copia[f][c] + copia[f][c-1]; //O(1)
+        m[f][c] = m[f][c] + m[f][c-1]; //O(1)
     }
     /*A continuacion vamos a recorrer todos los elementos excepto los de la primera fila y la primera columna.
     Hay n elementos en la primera fila y n elementos en la primera columna, donde solo hay un elemento que esta tanto en
@@ -42,14 +41,14 @@ int minimoCosto(vector<vector<int>> m){
     Entonces el tiempo de ejecucion de peor caso es O(n^2 - 2*n + 1) y como el termino con el grado mas alto es n^2, es O(n^2)*/	
     for(int i = 1; i < m.size(); i++){
         for(int j = 1; j < m.size(); j++){
-            if(copia[i-1][j] < copia[i][j-1]){ //O(1)
-                copia[i][j] = copia[i][j] + copia[i-1][j]; //O(1)
+            if(m[i-1][j] < m[i][j-1]){ //O(1)
+                m[i][j] = m[i][j] + m[i-1][j]; //O(1)
             } else {
-                copia[i][j] = copia[i][j] + copia[i][j-1]; //O(1)
+                m[i][j] = m[i][j] + m[i][j-1]; //O(1)
             }
         }
     }
-    return copia[m.size() - 1][m.size() - 1]; //O(1)
+    return m[m.size() - 1][m.size() - 1]; //O(1)
 }
 //Complejidad: O(n) + O(n) + O(n^2) -> O(n^2)
 
