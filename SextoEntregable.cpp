@@ -47,14 +47,6 @@ int minimoCosto(vector<vector<int>> m){
     return copia[m.size() - 1][m.size() - 1];
 }
 
-int main()
-{
-    vector<vector<int>> m = {{1,2,1},{1,10,1},{10,10,1}};
-    cout << minimoCosto(m);
-
-    return 0;
-}
-
 
 // Ejercicio 3 Practica 9
 
